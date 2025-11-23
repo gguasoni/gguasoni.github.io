@@ -73,9 +73,11 @@ h3 {
 
 .item-meta {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #00111A;
   text-align: justify;
   text-justify: inter-word;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 p {
