@@ -71,11 +71,9 @@ h3 {
     margin: 15px 0;
 }
 
-h4 {
-    color: #00111A;
-    font-size: 18px;
-    text-align: center;
-    margin: 12px 0;
+.item-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
 }
 
 p {
