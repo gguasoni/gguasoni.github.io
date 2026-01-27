@@ -9,10 +9,17 @@ body {
 }
 
 /* 2. Centered wrapper */
-#wrapper {
+.wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2em;
+}
+
+.card{
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 3em;
+  margin: 2.5em 0;
 }
 
 /* The white block */
