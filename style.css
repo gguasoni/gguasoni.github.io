@@ -9,14 +9,14 @@ body {
 }
 
 /* 2. Centered wrapper */
-.wrapper {
+#wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2em;
 }
 
 /* The white block */
-main {
+#main {
   background: #FCFEFF;
   border-radius: 0.25em;
   padding: 5em;
@@ -37,7 +37,7 @@ main {
 }
 
 /* Text Settings */
-title {
+.title {
     background-color: #00111A;
     color: #FCFEFF;
     font-size: 32px;
