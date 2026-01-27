@@ -1,9 +1,27 @@
 /*The Page Aesthetics and Colour Guidelines */
 
+/*The colour palette (in okclch codes) */
+:root {
+  --color-1: oklch(0.182 0.027 275.0);
+  --color-2: oklch(0.213 0.038 275.0);
+  --color-3: oklch(0.278 0.075 275.0);
+  --color-4: oklch(0.329 0.104 275.0);
+  --color-5: oklch(0.375 0.128 275.0);
+  --color-6: oklch(0.426 0.149 275.0);
+  --color-7: oklch(0.494 0.170 275.0);
+  --color-8: oklch(0.580 0.190 275.0);
+  --color-9: oklch(0.632 0.185 275.0);
+  --color-10: oklch(0.685 0.173 275.0);
+  --color-11: oklch(0.850 0.107 275.0);
+  --color-12: oklch(0.922 0.063 275.0);
+}
+
 /* The background */
 body {
-  background-color: #00111A;
-  background-image: linear-gradient(to bottom, #00111A, #6ACDFF);
+  background: linear-gradient(to bottom,
+                              var(--color-1),
+                              var(--color-8),
+                              var(--color-1));
   margin: 0;
   padding: 0;
 }
