@@ -1,4 +1,794 @@
-<!DOCTYPE html>
+Skip to content
+Chat history
+
+
+
+
+You said:
+what is the differeenceee between thesee two scripts? the second one shows the wrapper, thee first doeesn't. script 1: /*The Page Aesthetics and Colour Guidelines */
+
+/* The background */
+body {
+  background-color: #00111A;
+  background-image: linear-gradient(to bottom, #00111A, #6ACDFF);
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Centered wrapper */
+wrapper {
+  max-width: calc(100% - 4em);
+  margin: 0 auto;
+}
+
+/* The white block */
+main {
+  background: #FCFEFF;         
+  border-radius: 0.25em;        
+  padding: 5em;                 
+  margin-top: 4em;              
+        }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  padding: 10px 16px;
+  position: sticky;
+  background-color: #4b6b8a;
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+}
+
+/* Text Settings */
+title {
+    background-color: #00111A;
+    color: #FCFEFF;
+    font-size: 32px;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+h1 {
+    background-color: #00111A;
+    color: #FCFEFF;
+    font-size: 32px;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #00111A;
+    font-size: 26px;
+    text-align: center;
+    margin: 20px auto;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 8px;
+    width: fit-content;
+    max-width: 90%;
+}
+
+h3 {
+    color: #00111A;
+    font-size: 22px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.item-meta {
+  font-size: 0.85rem;
+  color: #00111A;
+  text-align: justify;
+  text-justify: inter-word;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+p {
+    font-size: 16px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.6;
+    color: #00111A;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+} Script 2: /*The Page Aesthetics and Colour Guidelines */
+
+/* The background */
+body {
+  background-color: #00111A;
+  background-image: linear-gradient(to bottom, #00111A, #6ACDFF);
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Centered wrapper */
+wrapper {
+  max-width: calc(100% - 4em);
+  margin: 0 auto;
+}
+
+/* The white block */
+main {
+  background: #FCFEFF;         
+  border-radius: 0.25em;        
+  padding: 5em;                 
+  margin-top: 4em;              
+        }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+/* Text Settings */
+title {
+    background-color: #00111A;
+    color: #FCFEFF;
+    font-size: 32px;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+h1 {
+    color: #00111A;
+    font-size: 32px;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #00111A;
+    font-size: 26px;
+    text-align: center;
+    margin: 20px auto;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 8px;
+    width: fit-content;
+    max-width: 90%;
+}
+
+h3 {
+    color: #00111A;
+    font-size: 22px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+h4 {
+    color: #00111A;
+    font-size: 18px;
+    text-align: center;
+    margin: 12px 0;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.6;
+    color: #00111A;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+ChatGPT said:
+Good question — the key difference isn’t magic, it’s what’s actually being styled vs what exists in your HTML. I’ll break it down cleanly.
+
+🔴 The real reason the “wrapper” shows in Script 2 but not Script 1
+1️⃣ wrapper is not a real HTML element
+In both scripts, you have:
+
+wrapper {
+  max-width: calc(100% - 4em);
+  margin: 0 auto;
+}
+That selector only applies if your HTML literally contains:
+
+<wrapper> ... </wrapper>
+But <wrapper> is not a valid HTML tag. Browsers will render it, but it behaves inconsistently and can easily collapse unless styled very explicitly.
+
+👉 The wrapper appearing in Script 2 is incidental, not because the wrapper rule is better — it’s because of differences elsewhere that visually expose the layout.
+
+✅ Correct fix (recommended):
+
+Use a class or ID:
+
+.wrapper {
+  max-width: calc(100% - 4em);
+  margin: 0 auto;
+}
+<div class="wrapper">
+  <main>...</main>
+</div>
+🧱 Why Script 2 appears to show structure better
+Several styling differences make Script 2 look like it has a wrapper even though it doesn’t.
+
+2️⃣ h1 background vs no background (BIG visual difference)
+Script 1
+
+h1 {
+  background-color: #00111A;
+  color: #FCFEFF;
+}
+Script 2
+
+h1 {
+  color: #00111A;
+}
+🔎 In Script 1, the dark h1 background bleeds edge-to-edge, visually swallowing the white main block.
+In Script 2, the white background of main is visible because headers are transparent.
+
+➡️ This alone makes Script 2 look “wrapped”.
+
+3️⃣ Paragraph alignment hides layout boundaries
+Script 1
+
+p {
+  text-align: justify;
+}
+Script 2
+
+p {
+  text-align: center;
+}
+Centered text with a max-width accentuates margins, while justified text visually fills space — again making Script 1 feel less boxed.
+
+4️⃣ .navbar styling difference
+Script 1
+
+.navbar {
+  width: 100%;
+  background-color: #4b6b8a;
+  box-shadow: ...
+}
+Script 2
+
+.navbar {
+  background: #555;
+  color: #f1f1f1;
+}
+Script 1’s navbar is:
+
+Full-width
+
+Shadowed
+
+Visually dominant
+
+This pulls attention away from the main container beneath it.
+
+5️⃣ Extra content constraints in Script 1
+Script 1 includes:
+
+.item-meta {
+  max-width: 800px;
+  margin: 0 auto;
+}
+That constrains only some content, not the whole page, which fragments the layout visually.
+
+Script 2 is simpler and therefore clearer.
+
+6️⃣ Invalid title selector (both scripts)
+title { ... }
+⚠️ <title> lives in <head> — it cannot be styled visually.
+
+If you meant a page title banner, use:
+
+.page-title { ... }
+✅ TL;DR — Why this is happening
+Issue	Script 1	Script 2
+Wrapper element	Invalid usage	Same, but hidden
+Header backgrounds	Dark, full-width	Transparent
+Visual containment	Weak	Strong
+Navbar dominance	High	Lower
+Layout clarity	Muddy	Clean
+✅ What you should do (clean, correct version)
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+main {
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 5em;
+  margin-top: 4em;
+}
+<div class="wrapper">
+  <main>
+    ...
+  </main>
+</div>
+If you want, paste your HTML and I’ll point out exactly why Script 1 collapses visually in your case — no guessing, no hand-waving.
+
+You said:
+this is my html: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giulia Guasoni - Home</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<h1 class = "site title">Giulia Guasoni</h1>
+	<nav class="navbar">
+    <a href="#profile">Profile</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+	<a href="#dissertations">Dissertations</a>
+    <a href="#leadership_public_engagement">Leadership and Public Engagement</a>
+    <a href="#skills">Skills</a>
+  </nav>
+
+<div id="wrapper">
+<div id="main">
+	<section id="profile" class="section">
+      <h2>Profile</h2>
+      <p>
+        MSc Bioinformatics graduate (University of Edinburgh) with experience processing and analysing high-throughput sequencing data in Unix/Linux environments, particularly bulk RNA-seq. I build reproducible, well-documented pipelines in R, Python, and Bash for omics datasets, including quality control, alignment, quantification, differential analysis, and visualisation. I am comfortable collaborating with experimental labs and communicating results to diverse audiences.
+      </p>
+    </section>
+</div>
+</div>	
+
+<div id="wrapper">
+<div id="main">
+    <section id="education" class="section">
+      <h2>Education</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>MSc Bioinformatics</h3>
+          <span class="item-meta">University of Edinburgh · 2025 · Merit: Second Class, Division 1</span>
+        </div>
+        <p>
+          Modules in statistics, biological databases, functional genomic technologies,
+          next-generation genomics, and bioinformatics algorithms. Developed practical skills in R, Python,
+          and Bash scripting with hands-on experience in website design using PHP, CSS, and HTML,
+          as well as exposure to commercialisation strategy and business model validation.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>BSc (Hons) Biomedical Sciences</h3>
+          <span class="item-meta">University of Edinburgh · 2024 · Second Class, Division 1</span>
+        </div>
+        <p>
+          Strong foundation in neuroscience, microbiology, physiology, and developmental biology,
+          with emphasis on experimental design, scientific writing, and literature analysis.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Irish Leaving Certificate</h3>
+          <span class="item-meta">The Institute of Education · 2020 · 532/625 points</span>
+        </div>
+      </article>
+    </section>
+</div>
+</div>
+	
+	<section id="experience" class="section">
+    	<h2>Work Experience</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Illustrator for “Brain-Body Connections”</h3>
+          <span class="item-meta">Springer Nature Press · 2025</span>
+        </div>
+        <p>
+          Collaborated with editors to design a concluding visual summary, synthesising key concepts with
+          scientific accuracy and visual clarity.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Summer Research Student</h3>
+          <span class="item-meta">University of Edinburgh · Jun – Jul 2023</span>
+        </div>
+        <p>
+          Studied the effect of a probiotic diet on a <em>C. elegans</em> motor behaviour phenotype.
+          Responsibilities included experimental work and data analysis in R/RStudio.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Summer Research Student – Family Genomics</h3>
+          <span class="item-meta">Maynooth University · Jun 2022</span>
+        </div>
+        <p>
+          Contributed to a literature review on the inheritance of Autism Spectrum Disorder.
+          Designed search strategies, collected literature from databases such as PubMed and Scopus,
+          and screened and evaluated studies for inclusion.
+        </p>
+      </article>
+    </section>
+
+	<section id="dissertations" class="section">
+		<h2>Dissertations</h2>
+      	<article class="item">
+        <div class="item-header">
+          <h3>Master’s Dissertation Project – Bioinformatics</h3>
+          <span class="item-meta">University of Edinburgh · May – Aug 2025</span>
+        </div>
+        <p>
+          Investigated sex-based differences in laminopathies by analysing publicly available RNA-seq data
+          in Prof. Eric Schirmer’s laboratory. Built and executed analysis workflows and communicated results
+          to an experimental team.
+        </p>
+      </article>
+		
+		<article class="item">
+        <div class="item-header">
+          <h3>Bachelor’s Dissertation Project</h3>
+          <span class="item-meta">University of Edinburgh · Jan – Apr 2024</span>
+        </div>
+        <p>
+          Investigated the effects of a probiotic diet on neurodegeneration and related motor behaviour
+          phenotypes in <em>C. elegans</em>. Conducted behavioural assays, maintained animal stocks,
+          and analysed results using WormLab and R/RStudio.
+        </p>
+      </article>
+
+	  <section id="leadership_public_engagement" class="section">
+      <h2>Leadership &amp; Public Engagement</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Social Representative, MSc Bioinformatics Cohort</h3>
+          <span class="item-meta">University of Edinburgh · Jan – Aug 2025</span>
+        </div>
+        <p>
+          Volunteered as Social Representative for the Class of 2025, fostering community engagement
+          and organising social events.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Student Orator, Biomedical Sciences Graduation Ceremony</h3>
+          <span class="item-meta">University of Edinburgh · Jul 2024</span>
+        </div>
+        <p>
+          Selected through a competitive speech-writing process. The speech was published in the
+          November 2024 edition of the University of Edinburgh Journal.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Pareach Podcast</h3>
+          <span class="item-meta">2021</span>
+        </div>
+        <p>
+          Interviewed guests, edited audio for publication, and created cover art for Spotify.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Math Tutor – SUAS Numeracy Programme</h3>
+          <span class="item-meta">2018</span>
+        </div>
+        <p>
+          Volunteered to teach mathematics to primary-school children in a disadvantaged school,
+          supporting foundational numeracy skills.
+        </p>
+      </article>
+    </section>
+
+			 <section id="skills" class="section">
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skills-column">
+          <h3>Bioinformatics &amp; Genomic Data Analysis</h3>
+          <ul>
+            <li>Bulk RNA-seq processing: QC, trimming, alignment, quantification, normalisation, differential expression, enrichment analysis</li>
+            <li>Familiarity with whole-genome sequencing and pathogen genomics concepts</li>
+          </ul>
+
+          <h3>Pipelines, Reproducibility &amp; Quality</h3>
+          <ul>
+            <li>Build and maintain end-to-end sequencing analysis pipelines</li>
+            <li>Git/GitHub for full reproducibility and auditability</li>
+            <li>Apply FAIR data practices for raw data, metadata, results, and documentation</li>
+          </ul>
+        </div>
+
+        <div class="skills-column">
+          <h3>Programming, Scripting &amp; Automation</h3>
+          <ul>
+            <li>R (tidyverse, ggplot2), Python, and Bash for pipeline components and automation</li>
+            <li>Unix/Linux environments for job scripting and workflow execution</li>
+            <li>Clean, reusable code with comments and modular structure</li>
+          </ul>
+
+          <h3>Visualisation, Reporting &amp; Communication</h3>
+          <ul>
+            <li>Publication-quality plots and summaries for sequencing studies</li>
+            <li>Reporting with R Markdown and related frameworks</li>
+            <li>Clear communication of analytical results to diverse audiences</li>
+          </ul>
+        </div>
+
+        <div class="skills-column">
+          <h3>Databases, Web &amp; Data Integration</h3>
+          <ul>
+            <li>Working knowledge of relational databases and basic SQL (MySQL)</li>
+            <li>Experience building simple web interfaces (HTML/CSS/PHP) to support data exploration</li>
+          </ul>
+
+          <h3>Communication &amp; Collaboration</h3>
+          <ul>
+            <li>Experience working with experimental labs and cross-functional teams</li>
+            <li>Scientific figures and visual summaries for collaborative decision-making</li>
+          </ul>
+        </div>
+
+		  <h3>Languages</h3>
+          <ul>
+            <li>English - Native</li>
+            <li>Italian - Native</li>
+			<li>French - Intermediate</li>
+			<li>Irish Gaelic - Intermediate</li>
+          </ul>
+		  
+      </div>
+    </section>
+
+  </main>
+
+		
+</body>
+</html>
+ChatGPT said:
+Perfect — this HTML explains everything. 👍
+Right now your CSS and HTML are talking past each other, so the “wrapper” cannot show consistently.
+
+I’ll be very concrete and point to exact mismatches, then give you a minimal fix (not a redesign).
+
+🔴 The core problem (the real bug)
+Your CSS styles elements
+wrapper { ... }
+main { ... }
+Your HTML uses IDs
+<div id="wrapper">
+<div id="main">
+❌ These do not match.
+
+CSS selectors are literal:
+
+CSS selector	Matches
+wrapper	<wrapper> element (you do NOT have one)
+#wrapper	id="wrapper"
+.wrapper	class="wrapper"
+Same for main.
+
+🔥 Result right now
+wrapper {} → applies to nothing
+
+main {} → applies only to <main> elements
+
+You do not have a <main> element until the very end, where one appears unopened
+
+So:
+
+White block sometimes appears accidentally
+
+Layout collapses unpredictably
+
+Script 2 only “works” visually by coincidence
+
+🟠 Additional structural problems (also important)
+1️⃣ You are using id="wrapper" multiple times
+<div id="wrapper">...</div>
+<div id="wrapper">...</div>
+🚫 IDs must be unique.
+
+Browsers don’t crash — they just behave weirdly.
+
+2️⃣ main is opened incorrectly
+At the bottom:
+
+</section>
+</main>
+But there is no matching <main> opening tag earlier.
+
+So the browser silently invents one → undefined layout behavior.
+
+3️⃣ This class name is broken
+<h1 class = "site title">
+That means two classes:
+
+site
+
+title
+
+But your CSS is:
+
+title { ... }
+❌ That targets a <title> element, not .title.
+
+✅ The minimal fix (keep your structure)
+✅ Fix the CSS selectors
+/* Wrapper */
+#wrapper {
+  max-width: calc(100% - 4em);
+  margin: 0 auto;
+}
+
+/* Main white block */
+#main {
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 5em;
+  margin-top: 4em;
+}
+
+/* Page title */
+.title {
+  background-color: #00111A;
+  color: #FCFEFF;
+  font-size: 32px;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+✅ Fix the HTML structure (important)
+Use one wrapper
+Use one main
+Actually open <main>
+<h1 class="title">Giulia Guasoni</h1>
+
+<nav class="navbar">...</nav>
+
+<div id="wrapper">
+  <main id="main">
+
+    <section id="profile">...</section>
+    <section id="education">...</section>
+    <section id="experience">...</section>
+    <section id="dissertations">...</section>
+    <section id="leadership_public_engagement">...</section>
+    <section id="skills">...</section>
+
+  </main>
+</div>
+🧠 Why Script 2 “looked right”
+Script 2:
+
+Didn’t rely on main background as heavily
+
+Didn’t give h1 a full-width dark background
+
+Centered text visually hinted at margins
+
+So it looked wrapped — but it wasn’t actually correct either.
+
+🟢 Summary (bookmark this)
+Your wrapper didn’t show because:
+
+wrapper ≠ #wrapper
+
+main ≠ #main
+
+IDs were reused
+
+<main> was never opened
+
+.title vs title confusion
+
+Once those are fixed, both scripts will behave predictably.
+
+If you want, next we can:
+
+Convert this to semantic HTML only
+
+Add a responsive breakpoint
+
+Or clean this into production-ready CSS in ~15 lines
+
+You said:
+but i don't want to have a white wrapper for everything, i want it for each section so that theey aree visually distinct
+ChatGPT said:
+Got it — you can absolutely have a separate white “card” for each section. The clean way is:
+
+one outer container to keep things centered (wrapper)
+
+each section gets its own white block (card)
+
+Right now you’re doing that idea, but with invalid/duplicate IDs and mismatched selectors.
+
+Do this: one wrapper + “card” class per section
+HTML (minimal changes)
+Replace your repeated id="wrapper" / id="main" blocks with a single wrapper, and give each section a class like card.
+
+<div class="wrapper">
+
+  <section id="profile" class="section card">
+    <h2>Profile</h2>
+    <p>...</p>
+  </section>
+
+  <section id="education" class="section card">
+    <h2>Education</h2>
+    ...
+  </section>
+
+  <section id="experience" class="section card">
+    <h2>Work Experience</h2>
+    ...
+  </section>
+
+  <!-- etc -->
+</div>
+That gives you distinct white blocks per section without needing multiple wrappers.
+
+CSS
+/* centered page container (does NOT add white background) */
+.wrapper{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/* each white block */
+.card{
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 3em;
+  margin: 2.5em 0;   /* space between cards */
+}
+
+/* optional: make the first card sit nicely under the navbar */
+.card:first-of-type{
+  margin-top: 4em;
+}
+Why this is better than repeating wrapper/main
+IDs stay unique ✅
+
+Layout stays consistent ✅
+
+You get “separate cards” for each section ✅
+
+Easier to tune spacing/padding later ✅
+
+Two quick notes based on your current code
+Your title CSS should target .title, not title:
+
+.title { ... }
+In <h1 class="site title">, you already have the class title — so .title {} will work immediately.
+
+If you paste your current style.css, I can splice these changes into it and make sure nothing else (like your p max-width or navbar styling) fights the new “section cards” layout.
+
+You said:
+from this script, only 'profile' has a wrappeeer. why? <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -241,5 +1031,357 @@
   </main>
 
 		
+</body>
+</html>
+ChatGPT said:
+Because only the Profile section is actually inside the element that your CSS is styling as the “white block” — and the rest of your page is falling out of the wrapper/main structure due to broken / mismatched tags.
+
+Here are the exact issues in your HTML as pasted:
+
+1) You open <main id="main"> for Profile… but you never close it correctly
+You do:
+
+<div id="wrapper">
+  <main id="main">
+    <section id="profile">...</section>
+</div>
+</div>
+Two problems:
+
+You close </div> while you’re still inside <main> (you never wrote </main> there).
+
+Then you close another </div>.
+
+So the browser “repairs” the DOM in its own way, and typically the result is:
+✅ the first block (Profile) keeps the styling
+❌ the rest ends up outside (or nested wrong), so it doesn’t inherit the “white card” look you expect.
+
+Fix: close </main> before closing the wrapper div.
+
+2) In the second block you don’t use <main> at all — you use <div id="main">
+For Education you wrote:
+
+<div id="wrapper">
+  <div id="main">
+    <section id="education">...</section>
+  </div>
+</div>
+If your CSS is still:
+
+main { background: white; ... }
+…then it will style <main> elements only, not <div id="main">.
+
+So even if your nesting were perfect, Education wouldn’t look wrapped unless your CSS targets #main (ID) or .main (class).
+
+3) You then forget to wrap the later sections at all
+After Education you have:
+
+<section id="experience" class="section">
+...
+</section>
+No wrapper, no main, no white card container around it — so it can’t show a “wrapper”.
+
+4) You have invalid nesting: <section> inside <section> without closing
+You do:
+
+<section id="dissertations">
+  ...
+  <section id="leadership_public_engagement">
+But you never close </section> for dissertations before starting leadership.
+
+Browsers will auto-fix this, but it often causes layout/style surprises (especially margins, backgrounds, etc.).
+
+✅ The simplest way to get “white blocks per section” (and keep it stable)
+Stop trying to repeat id="wrapper" and id="main".
+
+Use:
+
+one outer .wrapper container
+
+add a .card class to each section that should be a white block
+
+HTML pattern
+<div class="wrapper">
+  <section id="profile" class="section card">...</section>
+  <section id="education" class="section card">...</section>
+  <section id="experience" class="section card">...</section>
+  <section id="dissertations" class="section card">...</section>
+  <section id="leadership_public_engagement" class="section card">...</section>
+  <section id="skills" class="section card">...</section>
+</div>
+CSS
+.wrapper{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.card{
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 3em;
+  margin: 2.5em 0;
+}
+That gives you exactly what you want: each section is a distinct white panel, and nothing breaks due to duplicate IDs or mismatched tags.
+
+If you want to keep your current structure (minimal edits)
+Then at minimum you must:
+
+Make your wrappers unique (IDs can’t repeat) OR use classes
+
+Make your CSS match what you wrote (#main vs main)
+
+Fix tag closing: </main> in the right spot
+
+Ensure every section you want wrapped is actually inside the container
+
+If you paste your style.css (or just the wrapper/main part), I’ll rewrite only the lines needed so it works with the “card per section” approach.
+
+You said:
+going baseed on the simplest suffeestion, rewritee the html script, considering i havee alreeady made theee neceeessary changes to the css script
+ChatGPT said:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giulia Guasoni - Home</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <h1 class="title">Giulia Guasoni</h1>
+
+  <nav class="navbar">
+    <a href="#profile">Profile</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#dissertations">Dissertations</a>
+    <a href="#leadership_public_engagement">Leadership and Public Engagement</a>
+    <a href="#skills">Skills</a>
+  </nav>
+
+  <div class="wrapper">
+
+    <section id="profile" class="section card">
+      <h2>Profile</h2>
+      <p>
+        MSc Bioinformatics graduate (University of Edinburgh) with experience processing and analysing
+        high-throughput sequencing data in Unix/Linux environments, particularly bulk RNA-seq. I build
+        reproducible, well-documented pipelines in R, Python, and Bash for omics datasets, including quality
+        control, alignment, quantification, differential analysis, and visualisation. I am comfortable
+        collaborating with experimental labs and communicating results to diverse audiences.
+      </p>
+    </section>
+
+    <section id="education" class="section card">
+      <h2>Education</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>MSc Bioinformatics</h3>
+          <span class="item-meta">University of Edinburgh · 2025 · Merit: Second Class, Division 1</span>
+        </div>
+        <p>
+          Modules in statistics, biological databases, functional genomic technologies, next-generation
+          genomics, and bioinformatics algorithms. Developed practical skills in R, Python, and Bash scripting
+          with hands-on experience in website design using PHP, CSS, and HTML, as well as exposure to
+          commercialisation strategy and business model validation.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>BSc (Hons) Biomedical Sciences</h3>
+          <span class="item-meta">University of Edinburgh · 2024 · Second Class, Division 1</span>
+        </div>
+        <p>
+          Strong foundation in neuroscience, microbiology, physiology, and developmental biology, with
+          emphasis on experimental design, scientific writing, and literature analysis.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Irish Leaving Certificate</h3>
+          <span class="item-meta">The Institute of Education · 2020 · 532/625 points</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="experience" class="section card">
+      <h2>Work Experience</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Illustrator for “Brain-Body Connections”</h3>
+          <span class="item-meta">Springer Nature Press · 2025</span>
+        </div>
+        <p>
+          Collaborated with editors to design a concluding visual summary, synthesising key concepts with
+          scientific accuracy and visual clarity.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Summer Research Student</h3>
+          <span class="item-meta">University of Edinburgh · Jun – Jul 2023</span>
+        </div>
+        <p>
+          Studied the effect of a probiotic diet on a <em>C. elegans</em> motor behaviour phenotype.
+          Responsibilities included experimental work and data analysis in R/RStudio.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Summer Research Student – Family Genomics</h3>
+          <span class="item-meta">Maynooth University · Jun 2022</span>
+        </div>
+        <p>
+          Contributed to a literature review on the inheritance of Autism Spectrum Disorder. Designed search
+          strategies, collected literature from databases such as PubMed and Scopus, and screened and
+          evaluated studies for inclusion.
+        </p>
+      </article>
+    </section>
+
+    <section id="dissertations" class="section card">
+      <h2>Dissertations</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Master’s Dissertation Project – Bioinformatics</h3>
+          <span class="item-meta">University of Edinburgh · May – Aug 2025</span>
+        </div>
+        <p>
+          Investigated sex-based differences in laminopathies by analysing publicly available RNA-seq data
+          in Prof. Eric Schirmer’s laboratory. Built and executed analysis workflows and communicated results
+          to an experimental team.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Bachelor’s Dissertation Project</h3>
+          <span class="item-meta">University of Edinburgh · Jan – Apr 2024</span>
+        </div>
+        <p>
+          Investigated the effects of a probiotic diet on neurodegeneration and related motor behaviour
+          phenotypes in <em>C. elegans</em>. Conducted behavioural assays, maintained animal stocks, and
+          analysed results using WormLab and R/RStudio.
+        </p>
+      </article>
+    </section>
+
+    <section id="leadership_public_engagement" class="section card">
+      <h2>Leadership &amp; Public Engagement</h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Social Representative, MSc Bioinformatics Cohort</h3>
+          <span class="item-meta">University of Edinburgh · Jan – Aug 2025</span>
+        </div>
+        <p>
+          Volunteered as Social Representative for the Class of 2025, fostering community engagement and
+          organising social events.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Student Orator, Biomedical Sciences Graduation Ceremony</h3>
+          <span class="item-meta">University of Edinburgh · Jul 2024</span>
+        </div>
+        <p>
+          Selected through a competitive speech-writing process. The speech was published in the November
+          2024 edition of the University of Edinburgh Journal.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Pareach Podcast</h3>
+          <span class="item-meta">2021</span>
+        </div>
+        <p>
+          Interviewed guests, edited audio for publication, and created cover art for Spotify.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Math Tutor – SUAS Numeracy Programme</h3>
+          <span class="item-meta">2018</span>
+        </div>
+        <p>
+          Volunteered to teach mathematics to primary-school children in a disadvantaged school, supporting
+          foundational numeracy skills.
+        </p>
+      </article>
+    </section>
+
+    <section id="skills" class="section card">
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skills-column">
+          <h3>Bioinformatics &amp; Genomic Data Analysis</h3>
+          <ul>
+            <li>Bulk RNA-seq processing: QC, trimming, alignment, quantification, normalisation, differential expression, enrichment analysis</li>
+            <li>Familiarity with whole-genome sequencing and pathogen genomics concepts</li>
+          </ul>
+
+          <h3>Pipelines, Reproducibility &amp; Quality</h3>
+          <ul>
+            <li>Build and maintain end-to-end sequencing analysis pipelines</li>
+            <li>Git/GitHub for full reproducibility and auditability</li>
+            <li>Apply FAIR data practices for raw data, metadata, results, and documentation</li>
+          </ul>
+        </div>
+
+        <div class="skills-column">
+          <h3>Programming, Scripting &amp; Automation</h3>
+          <ul>
+            <li>R (tidyverse, ggplot2), Python, and Bash for pipeline components and automation</li>
+            <li>Unix/Linux environments for job scripting and workflow execution</li>
+            <li>Clean, reusable code with comments and modular structure</li>
+          </ul>
+
+          <h3>Visualisation, Reporting &amp; Communication</h3>
+          <ul>
+            <li>Publication-quality plots and summaries for sequencing studies</li>
+            <li>Reporting with R Markdown and related frameworks</li>
+            <li>Clear communication of analytical results to diverse audiences</li>
+          </ul>
+        </div>
+
+        <div class="skills-column">
+          <h3>Databases, Web &amp; Data Integration</h3>
+          <ul>
+            <li>Working knowledge of relational databases and basic SQL (MySQL)</li>
+            <li>Experience building simple web interfaces (HTML/CSS/PHP) to support data exploration</li>
+          </ul>
+
+          <h3>Communication &amp; Collaboration</h3>
+          <ul>
+            <li>Experience working with experimental labs and cross-functional teams</li>
+            <li>Scientific figures and visual summaries for collaborative decision-making</li>
+          </ul>
+
+          <h3>Languages</h3>
+          <ul>
+            <li>English - Native</li>
+            <li>Italian - Native</li>
+            <li>French - Intermediate</li>
+            <li>Irish Gaelic - Intermediate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- /.wrapper -->
+
 </body>
 </html>
