@@ -9,18 +9,19 @@ body {
 }
 
 /* 2. Centered wrapper */
-wrapper {
-  max-width: calc(100% - 4em);
+.wrapper {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2em;
 }
 
 /* The white block */
 main {
-  background: #FCFEFF;         
-  border-radius: 0.25em;        
-  padding: 5em;                 
-  margin-top: 4em;              
-        }
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 5em;
+  margin-top: 4em;
+}
 
 .navbar {
   position: sticky;
