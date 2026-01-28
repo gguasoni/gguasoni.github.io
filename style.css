@@ -57,6 +57,15 @@ body {
   width: 100%;
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 8px 10px;
 }
 
 /* Text Settings */
