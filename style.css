@@ -1,6 +1,6 @@
 /*The Page Aesthetics and Colour Guidelines */
 
-/*The colour palette (in okclch codes) */
+/*The colour palette (in okclch codes)*/
 :root {
   --color-1: oklch(0.182 0.027 275.0);
   --color-2: oklch(0.213 0.038 275.0);
@@ -50,7 +50,7 @@ body {
   top: 0;
   padding: 10px 16px;
   position: sticky;
-  background-color: var(--color-8);
+  background-color: var(--color-4);
   text-align: center;
   width: 100%;
   padding: 10px 0;
