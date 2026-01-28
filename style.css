@@ -68,6 +68,10 @@ body {
   padding: 8px 10px;
 }
 
+.navbar a:visited {
+  color: #d4af37;
+}
+
 /* Text Settings */
 .title {
   background-color: var(--color-1);
