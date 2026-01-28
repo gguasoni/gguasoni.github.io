@@ -114,7 +114,19 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;  
   font-size: 22px;
   text-align: center;
+  margin: 0 auto;
+}
+
+h4 {
+  color: #00111A;
+  font-family: Arial, Helvetica, sans-serif;  
+  font-size: 19px;
+  text-align: justify;
   margin: 15px 0;
+  text-justify: inter-word;
+  line-height: 1.6;
+  color: #00111A;
+  margin: 0 auto;
 }
 
 .item-meta {
@@ -134,9 +146,7 @@ p {
   text-justify: inter-word;
   line-height: 1.6;
   color: #00111A;
-  max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 li {
