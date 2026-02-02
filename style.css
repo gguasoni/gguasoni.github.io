@@ -180,19 +180,22 @@ a.button {
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
+  display: none !important;
+  position: absolute !important;
   background-color: #f9f9f9;
   min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 1000 !important;
+  left: 0;
+  top: 100%;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  color: black !important;
+  padding: 12px 16px !important;
   text-decoration: none;
-  display: block;
+  display: block !important;
+  float: none !important;
 }
 
 .dropdown-content a:hover {
@@ -200,8 +203,10 @@ a.button {
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: block !important;
 }
 
 .dropdown:hover .dropbtn {
   background-color: rgba(0,0,0,0.1);
+}
+
