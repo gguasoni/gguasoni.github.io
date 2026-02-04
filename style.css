@@ -212,7 +212,7 @@ a.button {
 }
 
 button {
-  max-width: 600px;
+  max-width: 60%;
   background: #FCFEFF;
   border-radius: 0.25em;
   margin: 2em auto;
