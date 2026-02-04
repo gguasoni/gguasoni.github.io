@@ -211,3 +211,15 @@ a.button {
   background-color: rgba(0,0,0,0.1);
 }
 
+button {
+  max-width: 1200px;
+  background: #FCFEFF;
+  border-radius: 0.25em;
+  padding: 5%;
+  margin: 5%;
+  color: #00111A;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  text-align: center;
+}
+
