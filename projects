@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giulia Guasoni - CV/Resume</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <h1 class="title">Giulia Guasoni</h1>
+
+<nav class="navbar">
+  <div class="dropdown">
+    <button class="dropbtn">CV/Resume</button>
+
+    <div class="dropdown-content">
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#dissertations">Dissertations</a>
+      <a href="#skills">Skills</a>
+      <a href="#leadership_public_engagement">
+        Leadership and Public Engagement
+      </a>
+      <a href="#languages">Languages</a>
+    </div>
+  </div>
+
+  <a
+    class="dropbtn"
+    href="https://www.linkedin.com/in/giulia-guasoni-92a968293/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    LinkedIn
+  </a>
