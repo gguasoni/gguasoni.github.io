@@ -1,0 +1,1080 @@
+:root {
+
+  /* Core palette */
+  --background: #101322;
+  --background-alt: #171B2E;
+
+  --surface: #F7F8FC;
+  --surface-raised: #FFFFFF;
+  --surface-muted: #EFF1F7;
+
+  --text: #161827;
+  --text-muted: #62677A;
+  --text-light: #F7F8FC;
+
+  /* Brand / technical accents */
+  --accent: #6C5CE7;
+  --accent-bright: #8B7CFF;
+  --accent-secondary: #24A7A1;
+  --accent-gold: #C6A64B;
+
+  /* Borders */
+  --border: #D9DCEA;
+  --border-dark: #2C314D;
+
+  /* Shadows */
+  --shadow-soft:
+    0 12px 32px rgba(3, 6, 18, 0.14);
+
+  --shadow-card:
+    4px 4px 0 rgba(23, 27, 46, 0.10);
+
+  --shadow-pixel:
+    4px 4px 0 #2C314D;
+
+  /* Typography */
+  --font-body:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --font-mono:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+
+  /* Layout */
+  --content-width: 1200px;
+
+  /* Shape */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 12px;
+
+  /* Animation */
+  --transition-fast: 160ms ease;
+  --transition-normal: 240ms ease;
+}
+
+
+/* =========================
+   2. Global Reset / Base
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-body);
+  color: var(--text);
+
+  /*
+     Dark technical background.
+
+     The two subtle repeating gradients create a faint
+     coordinate/grid effect without turning the site
+     into a full "gaming" interface.
+  */
+  background-color: var(--background);
+
+  background-image:
+    linear-gradient(
+      rgba(139, 124, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(139, 124, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      180deg,
+      var(--background-alt) 0%,
+      var(--background) 65%
+    );
+
+  background-size:
+    32px 32px,
+    32px 32px,
+    100% 100%;
+
+  background-attachment: fixed;
+
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+
+/* =========================
+   3. Main Layout
+   ========================= */
+
+.wrapper {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+
+/*
+   Main portfolio "window"
+
+   The narrow top border adds a little application /
+   workstation feeling without requiring additional HTML.
+*/
+#main {
+  position: relative;
+
+  background: var(--surface);
+  color: var(--text);
+
+  max-width: 100%;
+
+  margin-top: 3.5rem;
+  margin-bottom: 4rem;
+
+  padding: clamp(2rem, 5vw, 5rem);
+
+  border: 1px solid var(--border-dark);
+  border-top: 4px solid var(--accent);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow:
+    8px 8px 0 rgba(4, 7, 18, 0.35),
+    var(--shadow-soft);
+
+  overflow: hidden;
+}
+
+
+/*
+   Small decorative "status LEDs".
+   Purely visual — no HTML changes required.
+*/
+#main::before {
+  content: "";
+
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+
+  width: 7px;
+  height: 7px;
+
+  background: var(--accent-secondary);
+
+  box-shadow:
+    -14px 0 0 var(--accent-gold),
+    -28px 0 0 var(--accent);
+
+  border-radius: 1px;
+
+  opacity: 0.9;
+}
+
+
+/* =========================
+   4. Cards / Content Blocks
+   ========================= */
+
+.card {
+  position: relative;
+
+  background: var(--surface-raised);
+
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+
+  border-radius: var(--radius-small);
+
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+
+  margin:
+    clamp(1.5rem, 4vw, 3rem)
+    auto;
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+
+  border-color: #C5C9D8;
+
+  box-shadow:
+    6px 6px 0 rgba(23, 27, 46, 0.12);
+}
+
+
+/* =========================
+   5. Navigation
+   ========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.35rem;
+
+  padding: 0.65rem 1rem;
+
+  background:
+    rgba(16, 19, 34, 0.96);
+
+  border-bottom:
+    1px solid var(--border-dark);
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.18);
+
+  color: var(--text-light);
+
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.025em;
+}
+
+
+/*
+   Subtle terminal-style marker before navigation links.
+*/
+.navbar a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  color: #E8E9F3;
+
+  text-decoration: none;
+
+  padding: 0.5rem 0.75rem;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar a::before {
+  content: ">";
+
+  margin-right: 0.4rem;
+
+  color: var(--accent-secondary);
+
+  font-weight: 700;
+
+  opacity: 0;
+
+  transform: translateX(-3px);
+
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar a:hover {
+  color: #FFFFFF;
+
+  background: rgba(108, 92, 231, 0.14);
+
+  border-color: rgba(139, 124, 255, 0.35);
+}
+
+.navbar a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/*
+   Visited links deliberately retain the normal
+   navigation colour.
+
+   A CV site should not look different simply because
+   the recruiter has already clicked a page.
+*/
+.navbar a:visited {
+  color: #E8E9F3;
+}
+
+
+/* =========================
+   6. Hero / Main Title
+   ========================= */
+
+.title,
+h1 {
+  position: relative;
+
+  margin:
+    0
+    calc(-1 * clamp(2rem, 5vw, 5rem))
+    3rem;
+
+  padding:
+    clamp(2rem, 5vw, 3.5rem)
+    clamp(2rem, 5vw, 5rem);
+
+  background:
+    linear-gradient(
+      135deg,
+      #111528 0%,
+      #1B2040 70%,
+      #25264C 100%
+    );
+
+  color: var(--text-light);
+
+  font-family: var(--font-mono);
+
+  font-size:
+    clamp(2rem, 5vw, 3.25rem);
+
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-align: left;
+
+  letter-spacing: -0.035em;
+
+  text-shadow: none;
+
+  border-bottom:
+    1px solid var(--border-dark);
+}
+
+
+/*
+   Pixel-like accent cursor.
+*/
+.title::after,
+h1::after {
+  content: "_";
+
+  color: var(--accent-secondary);
+
+  margin-left: 0.15em;
+
+  animation:
+    cursor-blink 1.15s steps(2, start) infinite;
+}
+
+
+/* =========================
+   7. Headings
+   ========================= */
+
+h2 {
+  position: relative;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin:
+    clamp(2.5rem, 5vw, 4rem)
+    0
+    1.5rem;
+
+  padding:
+    0
+    0
+    0.6rem;
+
+  color: var(--text);
+
+  font-family: var(--font-mono);
+
+  font-size:
+    clamp(1.45rem, 3vw, 1.8rem);
+
+  font-weight: 700;
+
+  text-align: left;
+
+  letter-spacing: -0.025em;
+
+  border-bottom:
+    2px solid var(--accent);
+}
+
+
+/*
+   Small section marker inspired by command line / HUD
+   interfaces.
+*/
+h2::before {
+  content: "//";
+
+  margin-right: 0.55rem;
+
+  color: var(--accent-secondary);
+
+  font-size: 0.82em;
+}
+
+h3 {
+  margin:
+    2rem 0
+    0.6rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  font-size:
+    clamp(1.15rem, 2vw, 1.35rem);
+
+  font-weight: 650;
+
+  line-height: 1.3;
+
+  text-align: left;
+}
+
+h4 {
+  margin:
+    1.25rem 0
+    0.5rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  font-size: 1.05rem;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+
+/* =========================
+   8. Body Text
+   ========================= */
+
+p {
+  max-width: 75ch;
+
+  margin:
+    0 0
+    1.1rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  font-size: 1rem;
+
+  line-height: 1.72;
+
+  text-align: left;
+}
+
+
+/*
+   Useful for dates, locations, technologies,
+   affiliations, etc.
+*/
+.item-meta {
+  max-width: 75ch;
+
+  margin:
+    0.25rem 0
+    1rem;
+
+  padding: 0;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.82rem;
+
+  line-height: 1.55;
+
+  text-align: left;
+
+  letter-spacing: 0.015em;
+}
+
+
+/* =========================
+   9. Lists
+   ========================= */
+
+ul,
+ol {
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 0.45rem;
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  font-size: 1rem;
+
+  line-height: 1.65;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+
+/* =========================
+   10. Standard Links
+   ========================= */
+
+a {
+  color: #5646D8;
+
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+
+  transition:
+    color var(--transition-fast);
+}
+
+a:hover {
+  color: #3927BD;
+}
+
+a:focus-visible,
+button:focus-visible,
+.dropbtn:focus-visible {
+  outline:
+    3px solid var(--accent-secondary);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   11. Buttons
+   ========================= */
+
+button,
+a.button,
+.dropbtn {
+  font-family: var(--font-mono);
+}
+
+
+/*
+   Primary button styling.
+
+   Hard offset shadow provides a small pixel / arcade
+   reference while the overall design remains restrained.
+*/
+button,
+a.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  max-width: 100%;
+
+  margin:
+    1.5rem
+    0;
+
+  padding:
+    0.75rem
+    1.15rem;
+
+  background: var(--surface-raised);
+
+  color: var(--text);
+
+  border:
+    1px solid var(--border-dark);
+
+  border-radius: var(--radius-small);
+
+  box-shadow:
+    3px 3px 0 var(--border-dark);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+button:hover,
+a.button:hover {
+  background: var(--accent);
+
+  color: #FFFFFF;
+
+  transform: translate(-1px, -1px);
+
+  box-shadow:
+    5px 5px 0 var(--border-dark);
+}
+
+button:active,
+a.button:active {
+  transform: translate(2px, 2px);
+
+  box-shadow:
+    1px 1px 0 var(--border-dark);
+}
+
+
+/* =========================
+   12. Dropdown
+   ========================= */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.5rem 0.75rem;
+
+  background: transparent;
+
+  color: #E8E9F3;
+
+  border:
+    1px solid transparent;
+
+  border-radius: var(--radius-small);
+
+  font-size: 0.9rem;
+
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.dropbtn:hover {
+  background:
+    rgba(108, 92, 231, 0.14);
+
+  border-color:
+    rgba(139, 124, 255, 0.35);
+
+  color: #FFFFFF;
+}
+
+.dropdown-content {
+  display: none;
+
+  position: absolute;
+
+  top: calc(100% + 0.5rem);
+  left: 0;
+
+  min-width: 240px;
+
+  padding: 0.4rem;
+
+  background: var(--surface-raised);
+
+  border:
+    1px solid var(--border-dark);
+
+  border-radius: var(--radius-small);
+
+  box-shadow:
+    5px 5px 0 rgba(10, 13, 27, 0.35),
+    var(--shadow-soft);
+
+  z-index: 1100;
+}
+
+.dropdown-content a {
+  display: block;
+
+  width: 100%;
+
+  padding:
+    0.7rem
+    0.8rem;
+
+  color: var(--text);
+
+  background: transparent;
+
+  border: 0;
+
+  border-radius: 2px;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.83rem;
+
+  text-align: left;
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    padding-left var(--transition-fast);
+}
+
+.dropdown-content a::before {
+  content: "›";
+
+  margin-right: 0.5rem;
+
+  color: var(--accent);
+}
+
+.dropdown-content a:hover {
+  background: var(--surface-muted);
+
+  color: var(--accent);
+
+  padding-left: 1rem;
+}
+
+
+/*
+   Supports both mouse hover and keyboard navigation.
+*/
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn,
+.dropdown:focus-within .dropbtn {
+  background:
+    rgba(108, 92, 231, 0.14);
+
+  border-color:
+    rgba(139, 124, 255, 0.35);
+}
+
+
+/* =========================
+   13. Decorative Details
+   ========================= */
+
+/*
+   Horizontal rules become subtle data-style dividers.
+*/
+hr {
+  height: 1px;
+
+  margin:
+    2.5rem
+    0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-secondary),
+      transparent
+    );
+
+  border: 0;
+}
+
+
+/*
+   Inline code gets a restrained developer aesthetic.
+*/
+code {
+  padding:
+    0.12em
+    0.35em;
+
+  background: #ECECF5;
+
+  color: #4A3BC2;
+
+  border:
+    1px solid #D8D8E8;
+
+  border-radius: 3px;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.9em;
+}
+
+
+/* =========================
+   14. Animations
+   ========================= */
+
+@keyframes cursor-blink {
+
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================
+   15. Responsive Design
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .wrapper {
+    padding:
+      0
+      1rem;
+  }
+
+  #main {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+
+    padding:
+      2rem
+      1.5rem;
+
+    box-shadow:
+      4px 4px 0 rgba(4, 7, 18, 0.30),
+      var(--shadow-soft);
+  }
+
+  #main::before {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .title,
+  h1 {
+    margin:
+      0
+      -1.5rem
+      2rem;
+
+    padding:
+      2.5rem
+      1.5rem
+      2rem;
+
+    font-size:
+      clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  h2 {
+    margin-top: 2.5rem;
+  }
+
+  .navbar {
+    justify-content: flex-start;
+
+    padding:
+      0.55rem
+      0.75rem;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navbar a,
+  .dropbtn {
+    white-space: nowrap;
+  }
+
+  .dropdown-content {
+    min-width: 220px;
+  }
+
+  .card {
+    margin:
+      1.5rem
+      0;
+
+    padding:
+      1.5rem;
+  }
+
+  p,
+  li {
+    font-size: 0.97rem;
+  }
+}
+
+
+/* =========================
+   16. Small Mobile Screens
+   ========================= */
+
+@media (max-width: 480px) {
+
+  body {
+    background-size:
+      24px 24px,
+      24px 24px,
+      100% 100%;
+  }
+
+  .wrapper {
+    padding:
+      0
+      0.75rem;
+  }
+
+  #main {
+    padding:
+      1.5rem
+      1.15rem;
+
+    border-radius:
+      var(--radius-small);
+  }
+
+  .title,
+  h1 {
+    margin:
+      0
+      -1.15rem
+      1.75rem;
+
+    padding:
+      2.25rem
+      1.15rem
+      1.75rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h2::before {
+    margin-right: 0.35rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  button,
+  a.button {
+    width: 100%;
+
+    margin:
+      1rem
+      0;
+  }
+}
+
+
+/* =========================
+   17. Reduced Motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .title::after,
+  h1::after {
+    animation: none;
+    opacity: 1;
+  }
+}
