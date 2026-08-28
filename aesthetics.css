@@ -358,7 +358,7 @@ svg {
 
 .title,
 h1 {
-  position: relative;
+  position: sticky;
 
   margin:
     0
@@ -388,7 +388,7 @@ h1 {
 
   line-height: 1.15;
 
-  text-align: left;
+  text-align: center;
 
   letter-spacing: -0.035em;
 
